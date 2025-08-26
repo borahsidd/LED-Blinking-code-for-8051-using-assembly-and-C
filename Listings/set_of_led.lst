@@ -1,0 +1,50 @@
+C51 COMPILER V9.56.0.0   SET_OF_LED                                                        12/13/2018 20:56:27 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE SET_OF_LED
+OBJECT MODULE PLACED IN .\Objects\set_of_led.obj
+COMPILER INVOKED BY: C:\KEIL\C51\BIN\C51.EXE set_of_led.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\s
+                    -et_of_led.lst) TABS(2) OBJECT(.\Objects\set_of_led.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define led P2
+   3          
+   4          ////////////////////////////////////////Delay function
+   5          void delay(int a)
+   6          {
+   7   1        int i,j;
+   8   1        for (i=0; i<a;i++)
+   9   1        {
+  10   2          for(j=0; j<1275; j++);
+  11   2        }
+  12   1      }
+  13          ////////////////////////////////////////Main function
+  14          
+  15            void main()
+  16            {
+  17   1          led=0x00;     //////////////Initialize uc pin
+  18   1          
+  19   1           while(1)
+  20   1           {
+  21   2            led=0x55;
+  22   2            delay(100);
+  23   2            led=0xAA;
+  24   2            delay(100);
+  25   2           }
+  26   1      }    
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  BLINKING_ONE_LED                                                     01/28/2020 14:40:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\blinking_one_led.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE blinking_one_led.a51 SET(SMALL) DEBUG PRINT(.\Listings\blinking_one_led
+                      .lst) OBJECT(.\Objects\blinking_one_led.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000h
+
+0000 D2A0              2     again: setb P2.0
+
+0002 110A              3                              acall delay 
+
+0004 C2A0              4            clr P2.0
+
+0006 110A              5            acall delay
+
+0008 80F6              6            sjmp again
+
+000A                   7     delay:
+
+000A 7A07              8            mov r2,#7
+
+000C 79FF              9     here1: mov r1,#255
+
+000E 78FF             10     here2: mov r0,#255
+
+0010 D8FE             11     here3: djnz r0, here3                
+
+0012 D9FA             12                              djnz r1, here2
+
+0014 DAF6             13                              djnz r2, here1
+
+0016 22               14            ret 
+
+                      15            end
+
+A51 MACRO ASSEMBLER  BLINKING_ONE_LED                                                     01/28/2020 14:40:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0000H   A   
+DELAY. . . . . . .  C ADDR   000AH   A   
+HERE1. . . . . . .  C ADDR   000CH   A   
+HERE2. . . . . . .  C ADDR   000EH   A   
+HERE3. . . . . . .  C ADDR   0010H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
